@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss"; 
+
+/* ✅ Grøn linje for desktop */
+.greenLineDesktop {
+    width: 100%;
+    max-width: 1200px;
+    height: 4px;
+    background-color: $green-dark;
+    margin: 20px auto;
+    display: block; /* Sørger for at den vises */
+}
+
+/* ✅ Grøn linje for mobil */
+.greenLineMobile {
+    width: 92%;
+    height: 3px;
+    background-color: $green-dark;
+    margin: 10px auto;
+    display: none; /* Skjult som standard */
+}
+
+/* ✅ Skjuler desktop-versionen på mobil */
+@media screen and (max-width: 768px) {
+    .greenLineDesktop {
+        display: none; /* Skjuler desktop-linjen */
+    }
+    .greenLineMobile {
+        display: block; /* Viser mobil-linjen */
+    }
+}

@@ -1,0 +1,205 @@
+@import "../../styles/variables.scss";
+
+.minSideContainer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.greenLineContainer {
+    margin-top: 120px; 
+    margin-bottom: 40px; 
+    padding: 50px 0; 
+    display: block;
+}
+
+.tabContainer {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid $green-dark;
+    margin-bottom: 20px;
+    margin-top: 50px;
+
+    button {
+        flex: 1;
+        padding: 10px 20px;
+        border: 1px solid $green-dark;
+        background: $white;
+        cursor: pointer;
+        font-size: 16px;
+
+        &.activeTab {
+            background: $green-dark;
+            color: white;
+        }
+    }
+}
+
+.profileSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.leftSection {
+    width: 50%;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        label {
+            font-size: 14px;
+            font-weight: 400;
+            color: $black;
+            margin-bottom: 2px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid $green-dark;
+            font-size: 14px;
+            background-color: #EDECEC;
+            outline: none;
+
+            &:focus {
+                border-color: $green-primary;
+                box-shadow: 0 0 5px rgba(0, 128, 0, 0.3);
+            }
+        }
+    }
+}
+
+.rightSection {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 25px;
+
+    .checkboxContainer {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 25px;
+        gap: 10px;
+
+        label {
+            font-size: 12px;
+            color: $black;
+            line-height: 1.5;
+            flex-grow: 1;
+            text-align: left;
+            white-space: normal;
+        }
+
+        input {
+            width: 20px;
+            height: 20px;
+            accent-color: $green-dark;
+            margin-left: 10px;
+            order: 1;
+        }
+    }
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: -60px;
+    width: 100%;
+}
+
+.deleteButton {
+    background-color: #8B2C16;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    width: 160px;
+    text-align: center;
+    margin-bottom: 15px;
+
+    &:hover {
+        background-color: darkred;
+    }
+}
+
+.saveButton {
+    background-color: $green-dark;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    width: 160px;
+    text-align: center;
+    margin-bottom: 180px;
+
+    &:hover {
+        background-color: $green-primary;
+    }
+}
+
+@media (max-width: 768px) {
+    .minSideContainer {
+        padding: 20px;
+    }
+
+    .greenLineContainer {
+        margin-top: 80px;
+        margin-bottom: 40px;
+        padding: 10px 0;
+    }
+    .formContainer {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .leftSection, 
+    .rightSection {
+        width: 100%;
+    }
+    .checkboxContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .checkboxContainer label {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .checkboxContainer input {
+        width: 18px;
+        height: 18px;
+    }
+    .buttonContainer {
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+        width: 100%;
+        
+    }
+    .deleteButton, 
+    .saveButton {
+        min-width: 120px; 
+        padding: 8px 14px;
+        font-size: 14px; 
+    }
+}

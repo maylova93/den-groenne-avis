@@ -1,0 +1,138 @@
+@use '../../styles/variables.scss' as *;
+
+.kategoriListe {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 0;
+
+    .header {
+        position: relative;
+        text-align: left;
+        margin-bottom: 15px;
+
+        h2 {
+            font-size: 22px;
+            font-family: $font-primary;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50px; // Flyt linjen tættere på HeroSection
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: $green-dark;
+        }
+    }
+
+    .grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .kategori {
+        position: relative;
+        width: 170px;
+        height: 170px;
+        overflow: hidden;
+        text-decoration: none;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;  // Flyt overlay til toppen
+            left: 0;
+            width: 100%;
+            background: $green-primary;
+            color: $white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            font-family: $font-primary;
+            font-weight: 300;
+        }
+        
+        &:hover .overlay {
+            background: $green-dark;
+        }
+    }
+}
+
+/* MOBILVENLIG VERSION */
+@media screen and (max-width: 768px) {
+    .kategoriListe {
+        padding: 50px 5%;
+
+        .header {
+            text-align: center; 
+            margin-bottom: 20px;
+            position: relative;
+
+            h2 {
+                font-size: 20px;
+            }
+
+            &::before {
+                top: -75px; // Flytter linjen endnu længere op
+                
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); // Samme som produktvisning
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .kategori {
+            width: 100%; 
+            height: auto;
+            aspect-ratio: 1/1; 
+            position: relative;
+            overflow: hidden;
+            
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 35px;
+                background: $green-primary;
+                color: $white;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                padding: 8px;
+                font-weight: 500;
+                transition: background 0.3s ease-in-out;
+            }
+
+            &:hover .overlay {
+                background: $green-dark;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,191 @@
+@use '../../styles/variables.scss' as *;
+
+.productDetail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+    min-height: 68vh;
+    position: relative;
+    padding-top: 100px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        width: 80%;
+        height: 4px;
+        margin-left: -40%;
+        background-color: $green-dark;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .categoryList {
+        flex: 1;
+        max-width: 200px;
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 8px;
+
+                a {
+                    text-decoration: none;
+                    color: $black;
+                    font-size: 14px;
+                    font-weight: 300;
+                    transition: color 0.3s;
+                }
+            }
+        }
+
+        .activeCategory {
+            font-weight: 600;
+            color: $black;
+            text-decoration: underline;
+        }
+    }
+
+    .productInfo {
+        flex: 3;
+        align-items: center;
+        max-width: 850px;
+
+        h1 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .productImage {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 18px;
+        }
+
+        .productTitle {
+            font-size: 24px;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .productPrice {
+            font-size: 20px;
+            font-weight: 500;
+            color: $black;
+            margin-top: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .productDetail {
+        padding: 30px 5%;
+        padding-top: 60px;
+
+        .container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &::before {
+            top: 60px;
+        }
+
+        .categoryList {
+            max-width: 100%;
+            text-align: center;
+            padding: 15px 0;
+
+            ul {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                justify-content: flex-start;
+                gap: 15px;
+                padding: 10px 0;
+                margin: 0 auto;
+                white-space: nowrap;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                li {
+                    flex-shrink: 0;
+                    display: inline-block;
+
+                    a {
+                        font-size: 15px;
+                        font-weight: 400;
+                        padding: 10px 15px;
+                        background: #ffffff;
+                        border-radius: 6px;
+                        text-decoration: none;
+                        color: $black;
+                        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            background-color: $gray-light;
+                        }
+                    }
+                }
+            }
+        }
+
+        .productInfo {
+            text-align: left;
+            width: 100%;
+            margin-top: 20px;
+
+            .imageWrapper {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .productImage {
+                max-width: 95%;
+            }
+
+            .productTitle {
+                font-size: 22px;
+                font-weight: 500;
+                margin-top: 15px;
+                text-align: left;
+            }
+
+            .productDescription {
+                font-size: 14px;
+                color: #666;
+                margin-top: 10px;
+                line-height: 1.4;
+                text-align: left;
+            }
+
+            .productPrice {
+                font-size: 18px;
+                font-weight: 500;
+                color: $black;
+                margin-top: 10px;
+                text-align: left;
+            }
+        }
+    }
+}

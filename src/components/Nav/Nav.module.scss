@@ -1,0 +1,211 @@
+@use '../../styles/variables.scss' as *;
+
+.header {
+    background: $white;
+    padding: 15px 30px;
+    font-family: $font-primary;
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logoText {
+            font-family: $font-primary;
+            font-size: 30px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .greenText {
+            background-color: $green-dark;
+            color: $white;
+            padding: 8px 15px;
+        }
+
+        .whiteBox {
+            color: $green-dark;
+            background-color: $white;
+            border: 2px solid $green-dark;
+            padding: 6px 15px;
+        }
+
+        .navActions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .categorySelect {
+            border: 1px solid $green-primary;
+            padding: 9px 10px;
+            background-color: $gray-light;
+            cursor: pointer;
+            font-size: 14px;
+
+            &:focus {
+                outline: none;
+                border-color: $green-primary;
+            }
+        }
+
+        .createAd {
+            background: $green-primary;
+            color: $white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            font-family: $font-primary;
+            font-size: 15px;
+            font-weight: 400;
+
+            &:hover {
+                background: $green-dark;
+            }
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        
+            img {
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+                transition: 0.3s;
+                filter: brightness(150%) contrast(40%); // Gør ikonerne lysegrå
+        
+                &:hover {
+                    filter: brightness(50%) contrast(100%); // Gør dem mørkegrå ved hover
+                }
+            }
+        
+            a {
+                display: flex;
+            }
+        }
+    }
+}
+.logoutButton {
+    background: $white;  // Matcher headerens baggrund
+    color: $black;
+    border: 1px solid $gray-dark; 
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-family: $font-primary;
+
+    &:hover {
+        background: $green-dark;
+        color: $white;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $green-primary;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 7px 13px;
+        position: relative; // Gør det muligt at placere Logout-knappen absolut
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    .logoText {
+        font-size: 26px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logoutButton {
+        position: absolute;
+        top: 8px; // Flyt op
+        right: 10px; // Placer tæt på højre kant
+        font-size: 12px;
+        padding: 4px 10px;
+        border: 1px solid $gray-dark;
+        background: $white;
+        color: $black;
+        cursor: pointer;
+        transition: background 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            background: $green-dark;
+            color: $white;
+        }
+    }
+
+    .navActions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 90%;
+        gap: 5px;
+        margin-top: 20px; // Skaber afstand fra logout knappen
+    }
+
+    .categorySelect {
+        background: $gray-light;
+        font-size: 11px;
+        padding: 5px 6px;
+        flex: 1;
+        max-width: 100px;
+    }
+
+    .createAd {
+        font-size: 8px;
+        padding: 4px 2px;
+        flex: none;
+        min-width: 100px;
+        text-align: center;
+        margin-right: 12px;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        flex: none;
+        max-width: 90px;
+    }
+
+    .icons img {
+        width: 22px;
+        height: 22px;
+    }
+}

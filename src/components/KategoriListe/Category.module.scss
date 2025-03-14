@@ -1,0 +1,332 @@
+@use '../../styles/variables.scss' as *;
+
+.category {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+    min-height: 68vh;
+    position: relative;
+    padding-top: 100px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        width: 80%;
+        height: 4px;
+        margin-left: -40%;
+        background-color: $green-dark;
+    }
+
+    .container {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .categoryList {
+        flex: 1;
+        max-width: 200px;
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 8px;
+
+                a {
+                    text-decoration: none;
+                    color: $black;
+                    font-size: 14px;
+                    font-weight: 300;
+                    transition: color 0.3s;
+                }
+            }
+        }
+
+        .activeCategory {
+            font-weight: 600;
+            color: $black;
+            text-decoration: none;
+        }
+    }
+
+    .productGrid {
+        flex: 3;
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+
+            .product {
+                text-decoration: none;
+                color: $black;
+                text-align: center;
+                padding: 10px;
+                transition: transform 0.3s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.02);
+                }
+
+                .borderWrapper {
+                    border: 3px solid transparent;
+                    transition: border 0.3s ease-in-out;
+                    display: inline-block;
+                    width: 100%;
+
+                    &:hover {
+                        border-top: 3px solid $green-dark;
+                        border-left: 3px solid $green-dark;
+                        border-right: 3px solid $green-dark;
+                        border-bottom: none;
+                    }
+                }
+
+                .imageContainer {
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    .overlay {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        background: rgba(0, 86, 0, 0.6);
+                        color: $white;
+                        text-align: left;
+                        padding: 8px 12px;
+                        font-size: 14px;
+                        font-weight: 400;
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in-out;
+                        z-index: 3;
+                        border-top: none;
+                        border-left: none;
+                        border-right: none;
+                    }
+
+                    &:hover .overlay {
+                        opacity: 1;
+                    }
+                }
+
+                h3 {
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin-top: 10px;
+                    text-align: left;
+                }
+
+                .description {
+                    font-size: 14px;
+                    font-weight: 300;
+                    margin-top: 5px;
+                    color: $black;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14%;
+    padding: 30px;
+
+    button {
+        background-color: $green-primary;
+        color: $white;
+        border: none;
+        padding: 10px 15px;
+        margin: 0 10px;
+        cursor: pointer;
+        font-family: $font-primary;
+        font-size: 16px;
+        border-radius: 5px;
+        text-decoration: underline;
+
+        &:hover {
+            background-color: $green-dark;
+        }
+
+        &:disabled {
+            background-color: $gray-light;
+            color: #bbb;
+            cursor: not-allowed;
+        }
+    }
+
+    span {
+        font-size: 15px;
+        font-family: $font-primary;
+        font-weight: 300;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .category {
+        padding: 20px 5%;
+        padding-top: 80px;
+
+        &::before {
+            top: 60px;
+            left: 50%;
+            width: 75%;
+            height: 3px;
+            margin-left: -37.5%;
+            background-color: $green-dark;
+        }
+
+        .container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .categoryList {
+            max-width: 100%;
+            text-align: center;
+            padding: 15px 0;
+
+            h2 {
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 15px;
+            }
+
+            ul {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                justify-content: flex-start;
+                gap: 15px;
+                padding: 10px 0;
+                margin: 0 auto;
+                white-space: nowrap;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                li {
+                    flex-shrink: 0;
+                    display: inline-block;
+
+                    a {
+                        font-size: 15px;
+                        font-weight: 400;
+                        padding: 10px 15px;
+                        background: #ffffff;
+                        border-radius: 6px;
+                        text-decoration: none;
+                        color: $black;
+                        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover {
+                            background-color: $gray-light;
+                        }
+                    }
+                }
+            }
+        }
+
+        .productGrid {
+            text-align: center;
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .product {
+                .imageContainer {
+                    height: 160px;
+
+                    img {
+                        object-fit: cover;
+                    }
+                }
+
+                h3 {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+
+                .description {
+                    font-size: 12px;
+                    color: #666;
+                }
+            }
+        }
+    }
+
+    .pagination {
+        margin-top: 8%;
+        padding: 10px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            background-color: $green-primary;
+            color: $white;
+            border: none;
+            padding: 6px 10px;
+            margin: 0 4px;
+            font-family: $font-primary;
+            font-size: 12px;
+            border-radius: 4px;
+            text-decoration: underline;
+            transition: background 0.3s;
+
+            &:hover {
+                background-color: $green-dark;
+            }
+
+            &:disabled {
+                background-color: $gray-light;
+                color: #bbb;
+                cursor: not-allowed;
+                text-decoration: none;
+            }
+        }
+
+        span {
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+}

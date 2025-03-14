@@ -1,0 +1,350 @@
+@import "../../styles/variables.scss";
+
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 130vh; 
+    padding: 60px 0;
+
+    .greenLineWrapper {
+        width: 100%;
+        margin-bottom: 20px; 
+    }
+
+    .loginContainer {
+        padding: 40px;
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+        position: relative;
+        font-family: $font-primary;
+
+        h2 {
+            margin-bottom: 40px;
+            font-size: 30px;
+            color: $black;
+            font-weight: 400;
+        }
+
+        .loginForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            fieldset {
+                border: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .formGroup {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                margin-bottom: 15px;
+
+                label {
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: $black;
+                    text-align: left;
+                }
+
+                .inputWrapper {
+                    display: flex;
+                    align-items: center;
+                    border: 2px solid #1d843994;
+                    padding: 10px;
+                    background: #EDECEC;
+                    position: relative;
+                    width: 100%;
+
+                    .inputIcon {
+                        width: 26px;
+                        height: 26px;
+                        position: absolute;
+                        right: 12px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        filter: brightness(60%);
+                    }
+
+                    input {
+                        border: none;
+                        outline: none;
+                        font-size: 16px;
+                        padding: 10px 12px;
+                        padding-right: 35px;
+                        width: 100%;
+                        font-family: $font-primary;
+                        background: #EDECEC;
+                        color: $black;
+
+                        &::placeholder {
+                            color: $gray-dark;
+                        }
+
+                        &:-webkit-autofill {
+                            -webkit-box-shadow: inset 0 0 0 1000px #EDECEC;
+                        }
+                    }
+                }
+            }
+
+            .signupText {
+                font-size: 14px;
+                color: $black;
+                margin-top: 10px;
+
+                button {
+                    color: $green-dark;
+                    font-weight: 400;
+                    text-decoration: underline;
+                    border: none;
+                    background: none;
+                    cursor: pointer;
+                    font-size: 15px;
+
+                    &:hover {
+                        color: $green-primary;
+                    }
+                }
+            }
+
+            .buttonWrapper {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 20px;
+
+                .loginButton {
+                    background-color: $green-dark;
+                    color: $white;
+                    border: none;
+                    padding: 10px 30px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    font-family: $font-primary;
+                    transition: background 0.3s ease;
+
+                    &:hover {
+                        background-color: $green-primary;
+                    }
+                }
+            }
+        }
+    }
+
+    .donationContainer {
+        width: 100%;
+        max-width: 1200px;
+        margin-top: 100px; 
+
+        .donationSection {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 70px 0;
+
+            .header {
+                position: relative;
+                height: 4px;
+                background-color: $green-dark;
+                margin-bottom: 30px;
+            }
+
+            .donationGrid {
+                display: flex;
+                justify-content: space-between;
+                gap: 30px;
+
+                .donationCard {
+                    position: relative;
+                    width: 48%;
+                    height: 220px;
+                    background-size: cover;
+                    background-position: center;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    text-align: left;
+                    padding: 25px;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.5);
+                    }
+
+                    .overlay {
+                        position: relative;
+                        z-index: 1;
+                        color: $white;
+                        padding: 20px;
+                        max-width: 90%;
+                        display: flex;
+                        flex-direction: column;
+
+                        .textContainer {
+                            text-align: left;
+
+                            h3 {
+                                font-size: 28px;
+                                font-weight: 300;
+                                margin-bottom: 15px;
+                            }
+
+                            p {
+                                font-size: 20px;
+                                font-weight: 300;
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                        .amountContainer {
+                            display: flex;
+                            justify-content: flex-end;
+                            width: 120%;
+
+                            .amount {
+                                font-size: 38px;
+                                font-weight: 500;
+                                color: $green-primary;
+                            }
+                        }
+
+                        .thanksContainer {
+                            text-align: left;
+                            margin-top: 15px;
+                            font-weight: 300;
+
+                            .thanks {
+                                font-size: 16px;
+                                font-weight: 300;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 📱 Mobilvenlig styling */
+@media screen and (max-width: 768px) {
+    .pageWrapper {
+        height: auto; // ✅ Sørger for, at indholdet ikke strækker sig unødvendigt
+        padding: 40px 0;
+    }
+
+    .loginContainer {
+        max-width: 85%;
+        padding: 20px;
+        text-align: center;
+
+        h2 {
+            font-size: 22px;
+            margin-top: 30px;
+        }
+
+        .loginForm {
+            .formGroup {
+                label {
+                    font-size: 14px;
+                }
+
+                .inputWrapper {
+                    padding: 8px;
+
+                    input {
+                        font-size: 14px;
+                        padding: 8px 10px;
+                    }
+                }
+            }
+        }
+
+        .buttonWrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+
+            .loginButton {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+
+        .signupText {
+            font-size: 13px;
+            margin-top: 10px;
+
+            button {
+                font-size: 13px;
+            }
+        }
+    }
+
+    .donationContainer {
+        margin-top: 50px;
+
+        .donationSection {
+            padding: 20px 5%;
+
+            .header {
+                width: 60%;
+                height: 3px;
+                margin: 0 auto 15px;
+            }
+
+            .donationGrid {
+                flex-direction: column;
+                align-items: center;
+
+                .donationCard {
+                    width: 100%;
+                    height: 150px;
+                    margin-bottom: 10px;
+                    padding: 10px;
+
+                    .overlay {
+                        padding: 10px;
+                        text-align: left;
+
+                        .textContainer {
+                            h3 {
+                                font-size: 18px;
+                                margin-bottom: 8px;
+                            }
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+
+                        .amountContainer {
+                            justify-content: flex-end;
+                            padding-right: 10px;
+
+                            .amount {
+                                font-size: 20px;
+                            }
+                        }
+
+                        .thanksContainer {
+                            margin-top: 5px;
+
+                            .thanks {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

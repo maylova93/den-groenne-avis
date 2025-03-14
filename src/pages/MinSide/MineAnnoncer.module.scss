@@ -1,0 +1,225 @@
+@import "../../styles/variables.scss"; // Importerer dine variabler
+
+.mineAnnoncer {
+    padding: 20px;
+    background-color: $gray-light;
+
+    h2 {
+        text-align: center;
+        color: $green-dark;
+        font-family: $font-primary;
+        font-weight: 700;
+    }
+
+    .annonceListe {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .annonceCard {
+            background: $white;
+            border: 2px solid #1d84397e;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .annonceHeader {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: $green-dark;
+                color: $white;
+                padding: 10px;
+                border-radius: 5px;
+                font-family: $font-primary;
+
+                h3 {
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+
+                .pris {
+                    font-weight: 400;
+                }
+            }
+
+            .annonceContent {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                img {
+                    max-width: 120px;
+                    height: auto;
+                    border-radius: 5px;
+                }
+
+                p {
+                    flex-grow: 1;
+                    margin: 0;
+                    color: $gray-dark;
+                    font-family: $font-primary;
+                }
+            }
+
+            .commentsSection {
+                background: $gray-light;
+                padding: 10px;
+                border-radius: 5px;
+                margin-top: 10px;
+
+                h4 {
+                    margin: 0;
+                    font-size: 14px;
+                    color: $green-dark;
+                    font-weight: 700;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+
+                    li {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 5px 0;
+
+                        .deleteComment {
+                            background: none;
+                            border: none;
+                            color: $red-dark;
+                            cursor: pointer;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+            .annonceActions {
+                display: flex;
+                justify-content: flex-end;
+                gap: 15px;
+                margin-top: 10px;
+
+                button {
+                    padding: 8px 12px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-family: $font-primary;
+                    font-weight: 400;
+                    transition: background 0.3s ease;
+
+                    &:first-child {
+                        background-color: $green-dark;
+                        color: $white;
+
+                        &:hover {
+                            background-color: darken($green-dark, 10%);
+                        }
+                    }
+
+                    &:last-child {
+                        background-color: $red-dark;
+                        color: $white;
+
+                        &:hover {
+                            background-color: darken($red-dark, 10%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 🔹📱 Tablet-venlig visning (maks 768px) */
+@media (max-width: 768px) {
+    .mineAnnoncer {
+        padding: 15px;
+
+        .annonceListe {
+            .annonceCard {
+                padding: 10px;
+
+                .annonceHeader {
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    h3 {
+                        font-size: 16px;
+                    }
+                }
+
+                .annonceContent {
+                    flex-direction: column;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+                }
+
+                .annonceActions {
+                    justify-content: center;
+                    gap: 10px;
+
+                    button {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 🔹📱 Mobilvisning (maks 480px) */
+@media (max-width: 480px) {
+    .mineAnnoncer {
+        padding: 10px;
+
+        h2 {
+            font-size: 18px;
+        }
+
+        .annonceListe {
+            .annonceCard {
+                .annonceHeader {
+                    h3 {
+                        font-size: 14px;
+                    }
+                    .pris {
+                        font-size: 14px;
+                    }
+                }
+
+                .annonceContent {
+                    gap: 10px;
+                    img {
+                        max-width: 80%;
+                    }
+                }
+
+                .annonceActions {
+                    flex-direction: column;
+                    gap: 8px;
+
+                    button {
+                        width: 100%;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
